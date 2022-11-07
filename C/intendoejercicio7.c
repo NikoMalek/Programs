@@ -5,19 +5,12 @@
 int list[10];
 
 void hilospro (dato){ 
-
-int a;
-for(int i=0; i<10; i++){
-    if (i==dato){
-        sleep(dato);
-        srand(time(NULL));
-        printf("Numero: %d\n",a=rand()%20+1);
-        list[i] = a;
-        //printf("%d\n",list[i]);
-    }
-    else{
-    }
-}
+    int a;
+    /* Al generarse todos los hilos al mismo timepo estos dan el mismo dato*/
+    sleep(dato);/*Se duerme el programa dato segundos(el cual en el primer hilo 0segundos, en el siguiente 1,segundo, y asi sucesivamente)*/
+    srand(time(NULL));/*con srand hace que cambie el numero random segun el instante de tiempo en que se ejecute */
+    printf("Numero: %d\n",a=rand()%20+1);
+    list[dato] = a;
 }
 
 void suma(){
@@ -32,7 +25,6 @@ int x=0;
 int main (){
 
 pthread_t p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,pf;
-
 
 pthread_create(&p1,NULL,(void*) hilospro,0);
 pthread_create(&p2,NULL,(void*) hilospro,1);
