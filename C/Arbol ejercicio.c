@@ -18,7 +18,7 @@ int main() {
   scanf("%d",&a);
   printf("Anchura cantidad de Hijos (se cuenta al papu): ");
   scanf("%d",&b);
-for (c=0;c<a;c++){
+for (c=0;c<a-1;c++){
   if (fork()==0){
     printf("Soy hijo(%d, hijo de %d)\n",getpid(),getppid());
     if (c==0){

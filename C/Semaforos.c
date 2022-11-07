@@ -13,12 +13,13 @@ void *escribirA (void *nada)
   int num;
   for (num=0;num<MAX;num++)
   {
-    printf("A");
     pthread_mutex_lock(&lock);
+    printf("A");
     
-    fflush(NULL);
-    sleep(rand()%3);
     pthread_mutex_unlock(&lock);
+    fflush(NULL);
+    sleep(random()%3);
+    
     }
     
     //pthread exit(NULL);
@@ -29,12 +30,13 @@ void *escribirB (void *nada)
   int num;
   for (num=0;num<MAX;num++)
   {
-    printf("B");
     pthread_mutex_lock(&lock);
+    printf("B");
+    pthread_mutex_unlock(&lock);
     
     fflush(NULL);
-    sleep(rand()%2);
-    pthread_mutex_unlock(&lock);
+    sleep(random()%2);
+    
     }
     //pthread exit(NULL);
 }
@@ -44,11 +46,13 @@ void *escribirC (void *nada)
   int num;
   for (num=0;num<MAX;num++)
   {
-    printf("C");
+
     pthread_mutex_lock(&lock);
+    printf("C");
+    
     
     fflush(NULL);
-    sleep(rand()%1);
+    sleep(random()%1);
     pthread_mutex_unlock(&lock);
     }
     
@@ -57,7 +61,7 @@ void *escribirC (void *nada)
 int main(void) {
   pthread_t th1, th2, th3;
   
-  srand(time(NULL));
+  srandom(time(NULL));
   
   pthread_create(&th1, NULL, escribirA, NULL);
   pthread_create(&th2, NULL, escribirB, NULL);
