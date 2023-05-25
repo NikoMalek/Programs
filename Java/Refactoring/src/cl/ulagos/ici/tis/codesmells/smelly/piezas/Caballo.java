@@ -2,7 +2,7 @@ package cl.ulagos.ici.tis.codesmells.smelly.piezas;
 
 import cl.ulagos.ici.tis.codesmells.smelly.Color;
 
-public abstract class Caballo extends Pieza
+public class Caballo extends Pieza
 {
     public Caballo(Color color)
     {

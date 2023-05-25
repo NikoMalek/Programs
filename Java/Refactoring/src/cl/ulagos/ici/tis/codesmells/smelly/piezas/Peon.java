@@ -3,6 +3,8 @@ package cl.ulagos.ici.tis.codesmells.smelly.piezas;
 import cl.ulagos.ici.tis.codesmells.smelly.Color;
 import cl.ulagos.ici.tis.codesmells.smelly.Posicion;
 
+
+
 public class Peon extends Pieza
 {
     public Peon(Color color)
